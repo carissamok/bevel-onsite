@@ -1,0 +1,17 @@
+{
+  "name": "bevel-backend-onsite-check-ins",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for Bevel take-home assessment",
+  "workspaces": [
+    "frontend",
+    "backend-node"
+  ],
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend-python": "cd backend-python && uvicorn main:app --reload --port 8000",
+    "dev:backend-node": "cd backend-node && npm run dev",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend-node && npm install"
+  }
+}
+
