@@ -3,8 +3,6 @@ import os
 from openai import OpenAI
 from datetime import datetime
 
-# from .chat import get_openai_client
-
 DB_PATH = "/Users/worktrial7/Documents/bevel-onsite/event_checkins.db"
 
 async def save_checkin(structured_checkin):
@@ -18,7 +16,6 @@ async def save_checkin(structured_checkin):
         return
     
     try:
-        # print("trying to save check-in to the database...")
         conn = sqlite3.connect(DB_PATH)
         cur = conn.cursor()
 
@@ -43,7 +40,7 @@ def update_checkin(event_ids, action, updated_time=None, updated_message=None):
     """
     Update or delete a check-in based on action.
     action: "update" or "delete"
-    If "update", updated_time should be provided (ISO format string).
+    If "update", updated_time and updated message should be provided (ISO format string).
     """
     try:
         print(f"Updating check-in {event_ids} with action {action}...")
