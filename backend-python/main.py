@@ -13,6 +13,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# @asynccontextmanager
+async def lifespan(app: FastAPI):
+    """Manage application lifecycle - startup and shutdown."""
+    # Startup
+    print(f"Server starting on port {os.getenv('PORT', 3000)}")
+
+    yield
+    # Shutdown
+    await close_pool()
+
 # Include routers
 app.include_router(chat.router)
 
